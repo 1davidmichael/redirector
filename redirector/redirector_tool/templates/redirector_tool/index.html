@@ -1,7 +1,7 @@
 {% if all_redirects %}
   <url>
   {% for redirect in all_redirects %}
-    <li><a href="/redirects/{{ redirect.id }}/">{{ redirect.source_url }}</a></li>
+    <li><a href="{% url 'detail' redirect.id %}">{{redirect.source_url }</a></li>
   {% endfor %}
   </ul>
 {% else %}
