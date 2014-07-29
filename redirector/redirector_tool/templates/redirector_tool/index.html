@@ -7,7 +7,7 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 {% if all_redirects %}
-<h2 class="sub-header">Section title</h2>
+<h2 class="sub-header">Active Redirects</h2>
 <div class="table-responsive">
   <table class="table table-striped">
     <thead>
@@ -23,10 +23,10 @@
     <tbody>
     {% for redirect in all_redirects %}
     <tr>
-      <td><a href="{% url 'detail' redirect.id %}">{{ redirect.source_url }}</a></td>
+      <td><a href="{% url 'detail' redirect.id %}">{{ redirect.id }}</a></td>
       <td>{{ redirect.domain }}</td>
       <td>{{ redirect.domain }}{{ redirect.source_url }}</td>
-      <td>{{ redirect.destination_url }}</td>
+      <td><a href="{{ redirect.destination_url }}">{{ redirect.destination_url }}</a></td>
       <td>{{ redirect.expiration_date }}</td>
       <td>{{ redirect.comment }}</td>
     </tr>
