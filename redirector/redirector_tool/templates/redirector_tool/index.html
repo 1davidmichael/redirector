@@ -1,9 +1,39 @@
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 {% if all_redirects %}
-  <url>
-  {% for redirect in all_redirects %}
-    <li><a href="{% url 'detail' redirect.id %}">{{redirect.source_url }</a></li>
-  {% endfor %}
-  </ul>
+<h2 class="sub-header">Section title</h2>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Domain</th>
+        <th>Source URL</th>
+        <th>Destination URL</th>
+        <th>Expiration</th>
+        <th>Comments</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for redirect in all_redirects %}
+    <tr>
+      <td><a href="{% url 'detail' redirect.id %}">{{ redirect.source_url }}</a></td>
+      <td>{{ redirect.domain }}</td>
+      <td>{{ redirect.domain }}{{ redirect.source_url }}</td>
+      <td>{{ redirect.destination_url }}</td>
+      <td>{{ redirect.expiration_date }}</td>
+      <td>{{ redirect.comment }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
 {% else %}
-  <p>No redirects are available</p>
+    <p>No redirects are available</p>
 {% endif %}
