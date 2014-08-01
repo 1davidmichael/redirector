@@ -54,3 +54,5 @@ target/
 
 #SQLite db
 db.sqlite3
+
+.idea/
